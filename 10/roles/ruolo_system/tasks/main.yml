@@ -1,0 +1,10 @@
+---
+- name: Aggiornare il sistema
+  ansible.builtin.apt:
+    update_cache: yes
+    upgrade: yes
+
+- name: Installare pacchetti utili
+  ansible.builtin.apt:
+    name: "{{ packages }}"
+    state: present

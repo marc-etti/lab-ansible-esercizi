@@ -1,0 +1,16 @@
+---
+# Play 1 - gestisce node2
+- name: Configurazione di sistema
+  hosts: system_servers
+  become: true
+
+  roles:
+    - ruolo_system
+
+# Play 2 - gestisce node1
+- name: Installazione server web
+  hosts: web_servers
+  become: true
+
+  roles:
+    - ruolo_web

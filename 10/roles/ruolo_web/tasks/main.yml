@@ -1,0 +1,19 @@
+---
+- name: Installare Apache
+  ansible.builtin.apt:
+    name: apache2
+    state: present
+    update_cache: yes
+
+- name: Copiare il template index.html
+  ansible.builtin.template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
+    mode: "0644"
+  notify: Restart Apache
+
+- name: Copiare il file logo.png
+  ansible.builtin.copy:
+    src: logo.png
+    dest: /var/www/html/logo.png
+    mode: "0644"
