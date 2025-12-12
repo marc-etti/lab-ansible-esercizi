@@ -1,0 +1,21 @@
+---
+- name: Gestire un servizio su tutti i nodi
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Avviare nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true
+
+    - name: Arrestare nginx
+      ansible.builtin.service:
+        name: nginx
+        state: stopped
+
+    - name: Riavviare nginx
+      ansible.builtin.service:
+        name: nginx
+        state: restarted

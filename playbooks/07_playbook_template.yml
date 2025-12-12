@@ -1,0 +1,16 @@
+---
+- name: Usare un template Jinja2
+  hosts: ubuntu_nodes
+  become: true
+
+  vars:
+    app_name: "DemoApp"
+    env: "development"
+    version: "1.0.0"
+
+  tasks:
+    - name: Generare config da template
+      ansible.builtin.template:
+        src: "templates/07_config.j2"
+        dest: "/etc/demoapp.conf"
+        mode: "0644"

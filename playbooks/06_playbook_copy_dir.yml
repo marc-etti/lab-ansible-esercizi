@@ -1,0 +1,14 @@
+---
+- name: Copiare una directory su tutti i nodi
+  hosts: ubuntu_nodes
+  become: true
+
+  tasks:
+    - name: Copiare directory ricorsivamente
+      ansible.builtin.copy:
+        src: "files/06_mia_cartella/"
+        dest: "/opt/06_mia_cartella/"
+        owner: root
+        group: root
+        mode: "0755"
+        recursive: yes

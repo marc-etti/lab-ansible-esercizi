@@ -1,0 +1,16 @@
+---
+- name: Installare pacchetti software su tutti i nodi
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Aggiornare la lista dei pacchetti
+      ansible.builtin.apt:
+        update_cache: true
+
+    - name: Installare nginx e curl
+      ansible.builtin.apt:
+        name:
+          - nginx
+          - curl
+        state: present

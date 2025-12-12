@@ -1,0 +1,11 @@
+---
+- name: Creare un utente su tutti i nodi gestiti
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Creare l'utente developer
+      ansible.builtin.user:
+        name: developer
+        shell: /bin/bash
+        state: present

@@ -1,0 +1,12 @@
+---
+- name: Eseguire comando e salvare output
+  hosts: ubuntu_nodes
+
+  tasks:
+    - name: Eseguire ls /root
+      ansible.builtin.command: "ls -l /root"
+      register: risultato_ls
+
+    - name: Mostrare l'output
+      ansible.builtin.debug:
+        var: risultato_ls.stdout

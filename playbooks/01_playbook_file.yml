@@ -1,0 +1,13 @@
+---
+- name: Creare un file di testo su tutti i nodi
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Creare un file di testo con contenuto
+      ansible.builtin.copy:
+        dest: /tmp/prova.txt
+        content: "Questo file è stato creato tramite Ansible.\n"
+        owner: root
+        group: root
+        mode: '0644'
