@@ -3,8 +3,8 @@
   hosts: ubuntu_nodes
 
   tasks:
-    - name: Eseguire ls /root
-      ansible.builtin.command: "ls -l /root"
+    - name: Eseguire ls /
+      ansible.builtin.command: "ls -l /"
       register: risultato_ls
 
     - name: Mostrare l'output
